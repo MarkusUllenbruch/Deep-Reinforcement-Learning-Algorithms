@@ -10,8 +10,9 @@ Own Tensorflow 2.0 & PyTorch implementations of:
 [TD3 Paper](https://arxiv.org/abs/1802.09477)
 
 # Soft Actor-Critic (SAC)
-[SAC Paper 1](https://arxiv.org/abs/1801.01290)
-[SAC Paper 2](https://arxiv.org/abs/1812.05905)
+- [SAC Paper 1](https://arxiv.org/abs/1801.01290)
+  SAC Paper 1 provides the original and first version of SAC.
+- [SAC Paper 2](https://arxiv.org/abs/1812.05905)
 SAC Paper 1 provides the original and first version of SAC.
 SAC paper 2 provides the State-of-the-Art implementation of SAC with automatic temperature parameter optimization.
 
