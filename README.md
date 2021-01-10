@@ -11,10 +11,9 @@ Own Tensorflow 2.0 & PyTorch implementations of:
 
 # Soft Actor-Critic (SAC)
 - [SAC Paper 1](https://arxiv.org/abs/1801.01290)
-  SAC Paper 1 provides the original and first version of SAC.
+  provides the original and first version of SAC.
 - [SAC Paper 2](https://arxiv.org/abs/1812.05905)
-SAC Paper 1 provides the original and first version of SAC.
-SAC paper 2 provides the State-of-the-Art implementation of SAC with automatic temperature parameter optimization.
+  provides the State-of-the-Art implementation of SAC with automatic temperature parameter optimization.
 
 # Proximal Policy Optimization (PPO) discrete & continuous version
 [PPO Paper](https://arxiv.org/abs/1707.06347)
