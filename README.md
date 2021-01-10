@@ -1,4 +1,5 @@
-# State-of-the-Art Deep Reinforcement-Learning Algorithms
+# Deep Reinforcement-Learning
+## Implementations of State-of-the-Art Deep Reinforcement-Learning Algorithms
  
 Own Tensorflow 2.0 & PyTorch implementations of:
 
