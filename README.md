@@ -14,7 +14,7 @@ Own Tensorflow 2.0 & PyTorch implementations of:
   [(Complete Code as Jupyter Notebook)](SAC/SAC_TF.ipynb)
   
 
-## Proximal Policy Optimization (PPO) discrete & continuous version
+## Proximal Policy Optimization (PPO) continuous version
 [PPO Paper](https://arxiv.org/abs/1707.06347)
 
 [(PPO Tensorflow Code)](PPO/Tensorflow/agent.py) or [(PPO PyTorch Code)](PPO/PyTorch/agent.py)
