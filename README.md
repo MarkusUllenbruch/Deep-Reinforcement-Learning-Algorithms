@@ -13,11 +13,15 @@ Own Tensorflow 2.0 & PyTorch implementations of:
   
   [(Complete Code as Jupyter Notebook)](SAC/SAC_TF.ipynb)
   
+  ![alt text](https://spinningup.openai.com/en/latest/_images/math/c01f4994ae4aacf299a6b3ceceedfe0a14d4b874.svg)
+
 
 ## Proximal Policy Optimization (PPO) continuous version
 [PPO Paper](https://arxiv.org/abs/1707.06347)
 
 [(PPO Tensorflow Code)](PPO/Tensorflow/agent.py) or [(PPO PyTorch Code)](PPO/PyTorch/agent.py)
+
+![alt text](https://spinningup.openai.com/en/latest/_images/math/e62a8971472597f4b014c2da064f636ffe365ba3.svg)
 
 ## Additional Info
 These algorithms provide state of the art performance in most openAI and Unity environments and are currently a big field of research in industry and research institutions like openAI and Google DeepMind.
