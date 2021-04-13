@@ -7,20 +7,20 @@ import os
 
 
 class CriticNetwork(tf.keras.Model):
-    def __init__(self, n_states, n_actions, fc1_dims, fc2_dims, network_name, chkpt_dir='tmp/SAC', init_w=3e-3):
+    def __init__(self, n_states, n_actions, hidden_neurons_1, hidden_neurons_2, network_name, save_dir='tmp/SAC', init_value=3e-3):
         super(CriticNetwork, self).__init__()
 
         self.network_name = network_name
-        self.checkpoint_dir = chkpt_dir
+        self.checkpoint_dir = save_dir
         if not os.path.exists(self.checkpoint_dir):
             os.makedirs(self.checkpoint_dir)
         self.checkpoint_file = os.path.join(self.checkpoint_dir, network_name + '_SAC')
 
-        self.fc1 = Dense(units=fc1_dims, activation='relu', input_shape=(n_states + n_actions, ))
-        self.fc2 = Dense(units=fc2_dims, activation='relu')
+        self.fc1 = Dense(units=hidden_neurons_1, activation='relu', input_shape=(n_states + n_actions,))
+        self.fc2 = Dense(units=hidden_neurons_2, activation='relu')
         self.q = Dense(units=1,
-                       kernel_initializer=initializers.RandomUniform(minval=-init_w, maxval=init_w), # Änderung
-                       bias_initializer=initializers.RandomUniform(minval=-init_w, maxval=init_w))
+                       kernel_initializer=initializers.RandomUniform(minval=-init_value, maxval=init_value),  # Änderung
+                       bias_initializer=initializers.RandomUniform(minval=-init_value, maxval=init_value))
 
     def call(self, state, action):
         inputs = tf.concat([state, action], axis=1)

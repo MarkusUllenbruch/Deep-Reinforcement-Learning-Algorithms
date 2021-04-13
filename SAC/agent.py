@@ -44,20 +44,20 @@ class Agent:
                                        fc1_dims=layer1_size, fc2_dims=layer2_size, network_name='Actor')
 
         self.q_net1 = CriticNetwork(n_states=self.n_states, n_actions=self.n_actions,
-                                    fc1_dims=layer1_size, fc2_dims=layer2_size, network_name='Critic_1')
+                                    hidden_neurons_1=layer1_size, hidden_neurons_2=layer2_size, network_name='Critic_1')
 
         self.q_net2 = CriticNetwork(n_states=self.n_states, n_actions=self.n_actions,
-                                    fc1_dims=layer1_size, fc2_dims=layer2_size, network_name='Critic_2')
+                                    hidden_neurons_1=layer1_size, hidden_neurons_2=layer2_size, network_name='Critic_2')
 
         self.target_q_net1 = CriticNetwork(n_states=self.n_states, n_actions=self.n_actions,
-                                           fc1_dims=layer1_size, fc2_dims=layer2_size, network_name='Target_Critic_1')
+                                           hidden_neurons_1=layer1_size, hidden_neurons_2=layer2_size, network_name='Target_Critic_1')
 
         self.target_q_net2 = CriticNetwork(n_states=self.n_states, n_actions=self.n_actions,
-                                           fc1_dims=layer1_size, fc2_dims=layer2_size, network_name='Target_Critic_2')
+                                           hidden_neurons_1=layer1_size, hidden_neurons_2=layer2_size, network_name='Target_Critic_2')
 
         self.replay_buffer = ReplayBuffer(n_actions=self.n_actions,
                                           n_states=self.n_states,
-                                          max_size=max_size)
+                                          memory_size=max_size)
 
         self.policy_net.compile(optimizer=tf.keras.optimizers.Adam(lr=lr_actor))
         self.q_net1.compile(optimizer=tf.keras.optimizers.Adam(lr=lr_Q))
@@ -117,7 +117,7 @@ class Agent:
 
     def remember(self, state, action, reward, new_state, done):
         action = self.scale_action(action)  # ÄNDERUNG! Funktioniert das mit?
-        self.replay_buffer.store_transition(state, action, reward, new_state, done)
+        self.replay_buffer.store_environment_transition(state, action, reward, new_state, done)
 
     def update_target_networks(self, tau=None):
         if tau is None:
@@ -156,14 +156,14 @@ class Agent:
         print('models loaded')  # To Do!
 
     def learn(self):
-        if self.replay_buffer.n_count < self.batch_size:
+        if self.replay_buffer.count < self.batch_size:
             return
-        elif self.replay_buffer.n_count == self.batch_size:
+        elif self.replay_buffer.count == self.batch_size:
             print('Buffer Size equals batch Size! - Learning begins!')
             return
 
         # sample batch from replay buffer
-        states, actions, rewards, next_states, dones = self.replay_buffer.sample_buffer(batch_size=self.batch_size)
+        states, actions, rewards, next_states, dones = self.replay_buffer.sample_from_buffer(batch_size=self.batch_size)
 
         # convert batchs from 2D numpy arrays to tensorflow tensors
         states = tf.convert_to_tensor(states, dtype=tf.float32)
