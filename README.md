@@ -1,6 +1,7 @@
 # Deep Reinforcement-Learning
 ## Implementations of State-of-the-Art Deep Reinforcement-Learning Algorithms
-[Apply SAC on Control Problem:](https://github.com/MarkusUllenbruch/Deep-Reinforcement-Learning-Control)
+[Application of SAC on Double Pendulum Control Problem CLICK HERE!](https://github.com/MarkusUllenbruch/Deep-Reinforcement-Learning-Control)
+
 Own Tensorflow 2.0 & PyTorch implementations of:
 
 ## Soft Actor-Critic (SAC)
